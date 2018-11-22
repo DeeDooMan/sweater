@@ -1,1 +1,1 @@
-# -
+# - Hello, this is a simple clone of tweeter
