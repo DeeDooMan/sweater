@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.Set;
 
 @Entity
-@Table(name = "usr") // usr так как в postgreSQL уже есть ключевое слово user
+@Table(name = "usr")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,29 +17,14 @@ public class User implements UserDetails {
     private String password;
     private boolean active;
 
-
-    //Ролевая система, например админ-пользователь или модератор
-    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER) //Формирование дополнительной таблицы для хранения enum
-    //fetch - это параметр, который определяет как данные значений будут подгружаться относительно основной сущности
-    //когда мы загружаем пользователя, его роли хранятся в отдельной таблице
-    //и нам необходимо загружать их ЖАДНЫМ способом или ЛЕНИВЫМ
-    //ЖАДНЫЙ - когда гибернэйт сразу же при запросе пользователя
-    //будет подгружать все его роли.
-    //ЛЕНИВЫЙ - подгрузит роли, только когда пользователь реально обратится к этому полю
-    //EAGER(жадный) хорош когда у нас мало данных, в нашем случае с ролями,
-    //ускоряет работу, но потребляет больше памяти
-    //LAZY(ленывый) хорош когда много записей(например: класс иснтитут, который содержит 1000 студентов)
-
-
-    //Описывает что данное поле будет хранится в отдельной таблице,
-    //для которой мы не описывали мэппинг
+    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
-    //Позволяет создать таблицу для набора ролей, таблица user_role
-    //которая будет соединяться с текущей таблицей через user_id
-
-    //Хотим хранить enum в виде string
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
+
+    public boolean isAdmin() {
+        return roles.contains(Role.ADMIN);
+    }
 
     public Long getId() {
         return id;
