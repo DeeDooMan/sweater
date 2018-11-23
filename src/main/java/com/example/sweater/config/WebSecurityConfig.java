@@ -1,5 +1,6 @@
 package com.example.sweater.config;
 
+import com.example.sweater.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -7,8 +8,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-
-import javax.sql.DataSource;
 
 //CTRL+ALT+O убрать все неиспользуемые импорты
 
@@ -18,8 +17,10 @@ import javax.sql.DataSource;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
     @Autowired
-    private DataSource dataSource;
+    private UserService userService;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -58,14 +59,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication()
+        auth.userDetailsService(userService)
+                /*jdbcAuthentication()
                 .dataSource(dataSource) //нужен для того, чтобы мэнэджер мог входить в базу данных искать пользователя и их роли
-                .passwordEncoder(NoOpPasswordEncoder.getInstance()) //Шифровать пароли, чтобы они хранились в неявном виде
+                */
+                .passwordEncoder(NoOpPasswordEncoder.getInstance());
+
+               /* //Шифровать пароли, чтобы они хранились в неявном виде
                 //Для того чтобы система могла найти пользователя по его имени
                 .usersByUsernameQuery("select username, password, active from usr where username=?")
                 //Помогает спрингу получить список пользователей с их ролями,
                 //соединенные через поля user_id и id выбираем поля username и roles
                 //из таблицы user и присоединненной таблицы user_role
                 .authoritiesByUsernameQuery("select u.username, ur.roles from usr u inner join user_role ur on u.id = ur.user_id where u.username=?");
+                */
     }
 }
