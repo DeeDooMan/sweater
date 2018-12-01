@@ -10,7 +10,7 @@
     >
 <#else>
     <#assign
-        name = "unknown"
+        name = "неизвестно"
         isAdmin = false
     >
 </#if>
