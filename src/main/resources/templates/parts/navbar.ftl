@@ -12,14 +12,20 @@
             <li class="nav-item">
                 <a class="nav-link" href="/">Домой</a>
             </li>
+            <#if user??>
             <li class="nav-item">
                 <a class="nav-link" href="/main">Предложения</a>
             </li>
+            <li class="nav-item">
+                                        <a class="nav-link" href="/user-messages/${currentUserId}">Мои предложения</a>
+            </li>
+            </#if>
             <#if isAdmin>
             <li class="nav-item">
                 <a class="nav-link" href="/user">Список пользователей</a>
             </li>
             </#if>
+
         </ul>
 
         <div class="navbar-text mr-3">${name}</div>
