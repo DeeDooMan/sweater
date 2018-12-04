@@ -27,7 +27,7 @@ public class RegistrationController {
 
         //Сообщаем если такой пользователь есть в базе данных
         if (userFromDb != null){
-            model.put("message", "User exist!");
+            model.put("message", "Данное имя пользователя не доступно!");
             return "registration";
         }
 

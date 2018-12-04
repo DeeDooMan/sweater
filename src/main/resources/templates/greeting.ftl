@@ -1,6 +1,6 @@
 <#import "parts/common.ftl" as c>
 
 <@c.page>
-<h5>Hello, guest</h5>
-<div>This is a simple clone off Twitter</div>
+<h5>Рады приветствоевать Вас!</h5>
+<div>Это простое веб-приложение для аренды автомобилей.</div>
 </@c.page>
