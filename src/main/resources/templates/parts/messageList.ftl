@@ -12,14 +12,17 @@
         </div>
         <div class="card-footer text-muted">
             <a href="/user-messages/${message.author.id}">${message.authorName}</a>
+
+
             <#if message.author.id == currentUserId>
+            <td><a href="/deleteMessage/${message.id}">Удалить</a></td>
                                 <a class="btn btn-primary" href="/user-messages/${message.author.id}?message=${message.id}">
-                                    Edit
+                                    Изменить
                                 </a>
             </#if>
         </div>
     </div>
     <#else>
-    No message
+    Предложений нет
     </#list>
 </div>

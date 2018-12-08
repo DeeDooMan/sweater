@@ -3,6 +3,7 @@ package com.example.sweater.controller;
 import com.example.sweater.domain.Message;
 import com.example.sweater.domain.User;
 import com.example.sweater.repos.MessageRepo;
+import com.example.sweater.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -27,6 +28,10 @@ import java.util.UUID;
 public class MainController {
     @Autowired
     private MessageRepo messageRepo;
+
+    @Autowired
+    private UserRepo userRepo;
+
 
     //Спринг ишет upload.path в пропертис и подставляет значение в uploadPath
     @Value("${upload.path}")
@@ -83,7 +88,6 @@ public class MainController {
         model.addAttribute("messages", messages);
         return "main";
         }
-
 
 
     private void saveFile(@Valid Message message, @RequestParam("file") MultipartFile file) throws IOException {
@@ -144,4 +148,18 @@ public class MainController {
 
         return "redirect:/user-messages/" + user;
     }
+
+    @GetMapping("/deleteMessage/{id}")
+    public String deleteMessage(@PathVariable("id") int id) {
+        messageRepo.deleteById(id);
+        return "redirect:/main";
+    }
+
+
+    @GetMapping("/deleteUser/{id}")
+    public String deleteUser(@PathVariable("id") Long id) {
+        userRepo.deleteById(id);
+        return "redirect:/user";
+    }
+
 }

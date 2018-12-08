@@ -10,7 +10,6 @@
     </div>
 </div>
 
-<#include "parts/messageEdit.ftl" />
+<#include "parts/messageAdd.ftl" />
 <#include "parts/messageList.ftl" />
-
 </@c.page>
