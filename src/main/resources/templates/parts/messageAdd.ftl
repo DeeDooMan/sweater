@@ -11,6 +11,12 @@
                 <input type="text" class="form-control" name="tag" placeholder="Введите название машины">
             </div>
             <div class="form-group">
+                            <input type="text" class="form-control" name="price" placeholder="Введите цену машины">
+                        </div>
+            <div class="form-group">
+                            <input type="text" class="form-control" name="aviable" placeholder="Введите статус машины">
+                        </div>
+            <div class="form-group">
                 <div class="custom-file">
                     <input type="file" name="file" id="customFile">
                     <label class="custom-file-label" for="customFile">Выберите изображение машины</label>

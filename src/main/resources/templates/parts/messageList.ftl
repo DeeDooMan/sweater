@@ -9,17 +9,16 @@
         <div class="m-2">
             <span>${message.text}</span><br/>
             <i>#${message.tag}</i>
+            <i>#${message.price}</i>
         </div>
         <div class="card-footer text-muted">
             <a href="/user-messages/${message.author.id}">${message.authorName}</a>
-
-
             <#if message.author.id == currentUserId>
-            <td><a href="/deleteMessage/${message.id}">Удалить</a></td>
-                                <a class="btn btn-primary" href="/user-messages/${message.author.id}?message=${message.id}">
-                                    Изменить
-                                </a>
+             <td><a class="btn btn-primary" href="/deleteMessage/${message.id}" onclick="return confirm('Вы уверены что хотите удалить это предложение?');">Удалить</a></td>
+             <a class="btn btn-primary" href="/user-messages/${message.author.id}?message=${message.id}">Изменить</a>
+             <a class="btn btn-primary">${message.aviable}</a>
             </#if>
+
         </div>
     </div>
     <#else>
