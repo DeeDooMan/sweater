@@ -1,4 +1,4 @@
-package com.example.sweater.domain;
+package com.example.CarRental.domain;
 
 import javax.persistence.*;
 

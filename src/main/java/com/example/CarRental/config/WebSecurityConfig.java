@@ -1,6 +1,6 @@
-package com.example.sweater.config;
+package com.example.CarRental.config;
 
-import com.example.sweater.service.UserService;
+import com.example.CarRental.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

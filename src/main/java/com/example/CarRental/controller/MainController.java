@@ -1,9 +1,9 @@
-package com.example.sweater.controller;
+package com.example.CarRental.controller;
 
-import com.example.sweater.domain.Message;
-import com.example.sweater.domain.User;
-import com.example.sweater.repos.MessageRepo;
-import com.example.sweater.repos.UserRepo;
+import com.example.CarRental.domain.Message;
+import com.example.CarRental.domain.User;
+import com.example.CarRental.repos.MessageRepo;
+import com.example.CarRental.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -163,7 +163,6 @@ public class MainController {
         messageRepo.deleteById(id);
         return "redirect:/main";
     }
-
 
     @GetMapping("/deleteUser/{id}")
     public String deleteUser(@PathVariable("id") Long id) {

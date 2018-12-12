@@ -14,9 +14,6 @@
                             <input type="text" class="form-control" name="price" placeholder="Введите новую цену машины">
                         </div>
             <div class="form-group">
-                            <input type="text" class="form-control" name="aviable" placeholder="Введите новое статус машины">
-                        </div>
-            <div class="form-group">
                 <div class="custom-file">
                     <input type="file" name="file" id="customFile">
                     <label class="custom-file-label" for="customFile">Выберите новое изображение машины</label>

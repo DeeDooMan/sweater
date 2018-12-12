@@ -1,6 +1,6 @@
-package com.example.sweater.repos;
+package com.example.CarRental.repos;
 
-import com.example.sweater.domain.Message;
+import com.example.CarRental.domain.Message;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
