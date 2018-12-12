@@ -14,7 +14,8 @@
         <div class="card-footer text-muted">
             <a href="/user-messages/${message.author.id}">${message.authorName}</a>
             <#if message.author.id == currentUserId>
-             <td><a class="btn btn-danger" href="/deleteMessage/${message.id}" onclick="return confirm('Вы уверены что хотите удалить это предложение?');">Удалить</a></td>
+              <td><a class="btn btn-danger" href="/deleteMessage/${message.id}" onclick="return confirm('Вы уверены что хотите удалить это предложение?');">Удалить</a></td>
+
              <a class="btn btn-primary" href="/user-messages/${message.author.id}?message=${message.id}">Изменить</a>
              <a class="btn btn-primary">${message.aviable}</a>
             </#if>

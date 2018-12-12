@@ -14,7 +14,7 @@
                             <input type="text" class="form-control" name="price" placeholder="Введите новую цену машины">
                         </div>
             <div class="form-group">
-                            <input type="text" class="form-control" name="aviable" placeholder="Введите новое статус машины">
+                            <input type="text" class="form-control" name="aviable" placeholder="Введите новый город">
                         </div>
             <div class="form-group">
                 <div class="custom-file">
