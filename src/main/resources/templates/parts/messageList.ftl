@@ -9,7 +9,7 @@
         <div class="m-2">
             <span>${message.text}</span><br/>
             <i>#${message.tag}</i>
-            <i>#${message.price}</i>
+            <span>${message.price}</span>
         </div>
         <div class="card-footer text-muted">
             <a href="/user-messages/${message.author.id}">${message.authorName}</a>
