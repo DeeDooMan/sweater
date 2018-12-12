@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="sweater" options="-parameters" />
+      <module name="sweater" options="" />
     </option>
   </component>
 </project>
