@@ -130,7 +130,6 @@ public class MainController {
             @RequestParam("text") String text,
             @RequestParam("tag") String tag,
             @RequestParam("price") String price,
-            @RequestParam("aviable") String aviable,
             @RequestParam("file") MultipartFile file
     ) throws IOException {
         if (message.getAuthor().equals(currentUser)) {
@@ -140,10 +139,6 @@ public class MainController {
 
             if (!StringUtils.isEmpty(tag)) {
                 message.setTag(tag);
-            }
-
-            if (!StringUtils.isEmpty(aviable)) {
-                message.setAviable(aviable);
             }
 
             if (!StringUtils.isEmpty(price)) {

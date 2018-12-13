@@ -18,9 +18,6 @@
             <li class="nav-item">
              <a class="nav-link" href="/user-messages/${currentUserId}">Мои предложения</a>
             </li>
-            <li class="nav-item">
-                         <a class="nav-link" href="/user-orders/${currentUserId}">Мои заказы</a>
-                        </li>
             </#if>
             <#if isAdmin>
             <li class="nav-item">
