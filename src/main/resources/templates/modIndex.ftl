@@ -4,5 +4,5 @@
 <#import "parts/common.ftl" as c>
 <@c.page>
 <#include "parts/modelCarList.ftl" />
-</#if>
 </@c.page>
+</#if>

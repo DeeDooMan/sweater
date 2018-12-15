@@ -42,7 +42,4 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-
-<#include "parts/carAdd.ftl" />
-
 </@c.page>
