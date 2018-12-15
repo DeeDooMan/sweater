@@ -23,6 +23,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="/user">Список пользователей</a>
             </li>
+            <li class="nav-item">
+                            <a class="nav-link" href="/mainCar">Список машин</a>
+                        </li>
+                        <li class="nav-item">
+                                                    <a class="nav-link" href="/mainMod">Список моделей</a>
+                                                </li>
             </#if>
 
         </ul>

@@ -16,7 +16,7 @@
             <td scope="row">${user.username}</td>
             <td><#list user.roles as role>${role}<#sep>, </#list></td>
             <td><a class="btn btn-primary" href="/user/${user.id}">Изменить</a></td>
-            <td><a class="btn btn-danger" href="/deleteUser/${user.id}" onclick="return confirm('Вы уверены что хотите удалить это предложение?');">Удалить</a></td>
+            <td><a class="btn btn-danger" href="/deleteUser/${user.id}" onclick="return confirm('Вы уверены что хотите удалить этого пользователя?');">Удалить</a></td>
         </tr>
     </#list>
     </tbody>

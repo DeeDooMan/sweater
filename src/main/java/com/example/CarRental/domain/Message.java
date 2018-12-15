@@ -10,6 +10,7 @@ public class Message {
 
     private String text;
     private String tag;
+    private String mod;
     private String price;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -21,11 +22,20 @@ public class Message {
     public Message() {
     }
 
-    public Message(String text, String tag, String price, User user) {
-        this.author = user;
+    public Message(String text, String tag, String mod, String price, User author) {
         this.text = text;
         this.tag = tag;
+        this.mod = mod;
         this.price = price;
+        this.author = author;
+    }
+
+    public String getMod() {
+        return mod;
+    }
+
+    public void setMod(String mod) {
+        this.mod = mod;
     }
 
     public String getAuthorName() {

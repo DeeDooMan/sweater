@@ -1,15 +1,33 @@
 <a class="btn btn-success" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
     Добавить предложение
 </a>
+
 <div class="collapse" id="collapseExample">
+
     <div class="form-group mt-3">
         <form method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <input type="text" class="form-control" name="text" placeholder="Введите контактные данные" />
             </div>
-            <div class="form-group">
-                <input type="text" class="form-control" name="tag" placeholder="Введите название машины">
-            </div>
+
+<div class="form-group">
+                <label for="exampleFormControlSelect1">Выберите название машины</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="tag">
+                 <#list cars as car>
+                  <option type="text" value="${car.nameCar}">${car.nameCar}</option>
+                  </#list>
+                </select>
+              </div>
+
+              <div class="form-group">
+                              <label for="exampleFormControlSelect1">Выберите модель машины</label>
+                              <select class="form-control" id="exampleFormControlSelect1" name="mod">
+                               <#list mods as mod>
+                                <option type="text" value="${mod.name}">${mod.name}</option>
+                                </#list>
+                              </select>
+                            </div>
+
             <div class="form-group">
                             <input type="text" class="form-control" name="price" placeholder="Введите цену машины">
                         </div>

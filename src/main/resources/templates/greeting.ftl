@@ -43,4 +43,6 @@
   </a>
 </div>
 
+<#include "parts/carAdd.ftl" />
+
 </@c.page>
