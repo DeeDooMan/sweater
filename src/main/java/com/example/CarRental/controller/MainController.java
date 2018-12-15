@@ -1,8 +1,12 @@
 package com.example.CarRental.controller;
 
+import com.example.CarRental.domain.Car;
 import com.example.CarRental.domain.Message;
+import com.example.CarRental.domain.Mod;
 import com.example.CarRental.domain.User;
+import com.example.CarRental.repos.CarRepo;
 import com.example.CarRental.repos.MessageRepo;
+import com.example.CarRental.repos.ModRepo;
 import com.example.CarRental.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -32,6 +36,12 @@ public class MainController {
     @Autowired
     private UserRepo userRepo;
 
+    @Autowired
+    private CarRepo carRepo;
+
+    @Autowired
+    private ModRepo modRepo;
+
     //Спринг ишет upload.path в пропертис и подставляет значение в uploadPath
     @Value("${upload.path}")
     private String uploadPath;
@@ -39,15 +49,15 @@ public class MainController {
     //Убрали лишнее так как на главной странице ничего не принемаем
     @GetMapping("/")
     public String greeting(
-            //@RequestParam(name="name", required=false, defaultValue="World")
                     String name, Map<String, Object> model) {
-                    //model.put("name", name);
                     return "greeting";
     }
 
     @GetMapping("/main")
     public String main(@RequestParam(required = false, defaultValue = "") String filter, Model model){
         Iterable<Message> messages;
+        Iterable<Car> cars = carRepo.findAll();
+        Iterable<Mod> mods = modRepo.findAll();
 
         if (filter !=null && !filter.isEmpty()) {
             messages = messageRepo.findByTag(filter);
@@ -59,6 +69,8 @@ public class MainController {
         }
 
         model.addAttribute("messages", messages);
+        model.addAttribute("cars", cars);
+        model.addAttribute("mods", mods);
         model.addAttribute("filter", filter);
         return "main";
     }
@@ -114,8 +126,12 @@ public class MainController {
             @RequestParam(required = false) Message message
     ){
         Set<Message> messages = user.getMessages();
+        Set<Car> cars = user.getCars();
+        Set<Mod> mods = user.getMods();
 
         model.addAttribute("messages", messages);
+        model.addAttribute("cars", cars);
+        model.addAttribute("mods", mods);
         model.addAttribute("message", message);
         model.addAttribute("isCurrentUser", currentUser.equals(user));
 
@@ -129,8 +145,8 @@ public class MainController {
             @RequestParam("id") Message message,
             @RequestParam("text") String text,
             @RequestParam("tag") String tag,
+            @RequestParam("mod") String mod,
             @RequestParam("price") String price,
-            @RequestParam("aviable") String aviable,
             @RequestParam("file") MultipartFile file
     ) throws IOException {
         if (message.getAuthor().equals(currentUser)) {
@@ -142,8 +158,8 @@ public class MainController {
                 message.setTag(tag);
             }
 
-            if (!StringUtils.isEmpty(aviable)) {
-                message.setAviable(aviable);
+            if (!StringUtils.isEmpty(mod)) {
+                message.setMod(mod);
             }
 
             if (!StringUtils.isEmpty(price)) {
@@ -169,5 +185,8 @@ public class MainController {
         userRepo.deleteById(id);
         return "redirect:/user";
     }
+
+
+
 
 }

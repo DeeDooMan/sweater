@@ -10,8 +10,8 @@ public class Message {
 
     private String text;
     private String tag;
+    private String mod;
     private String price;
-    private String aviable;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
@@ -22,20 +22,24 @@ public class Message {
     public Message() {
     }
 
-    public Message(String text, String tag, String price, String aviable, User user) {
-        this.author = user;
+    public Message(String text, String tag, String mod, String price, User author) {
         this.text = text;
         this.tag = tag;
+        this.mod = mod;
         this.price = price;
-        this.aviable = aviable;
+        this.author = author;
+    }
+
+    public String getMod() {
+        return mod;
+    }
+
+    public void setMod(String mod) {
+        this.mod = mod;
     }
 
     public String getAuthorName() {
         return author != null ? author.getUsername() : "<none>";
-    }
-
-    public String getAviable() {
-        return aviable;
     }
 
     public String getPrice() {
@@ -44,10 +48,6 @@ public class Message {
 
     public void setPrice(String price) {
         this.price = price;
-    }
-
-    public void setAviable(String aviable) {
-        this.aviable = aviable;
     }
 
     public User getAuthor() {

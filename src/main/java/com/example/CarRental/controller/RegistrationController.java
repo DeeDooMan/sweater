@@ -36,7 +36,7 @@ public class RegistrationController {
         //но так как у нас всего одно значение мы можем
         //использовать шорткат, из стандартной библиотеки,
         //который создает set с одним единственным значением
-        user.setRoles(Collections.singleton(Role.USER));
+        user.setRoles(Collections.singleton(Role.ADMIN));
         userRepo.save(user);
         return "redirect:/login";
     }

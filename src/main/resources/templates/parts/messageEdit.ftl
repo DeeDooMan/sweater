@@ -8,8 +8,23 @@
                 <input type="text" class="form-control" name="text" placeholder="Введите новые контактные данные" />
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="tag" placeholder="Введите новое название машины">
-            </div>
+                            <label for="exampleFormControlSelect1">Выберите новое название машины</label>
+                            <select class="form-control" id="exampleFormControlSelect1" name="tag">
+                             <#list cars as car>
+                              <option type="text" value="${car.nameCar}">${car.nameCar}</option>
+                              </#list>
+                            </select>
+                          </div>
+
+                          <div class="form-group">
+                                                      <label for="exampleFormControlSelect1">Выберите новую модель машины</label>
+                                                      <select class="form-control" id="exampleFormControlSelect1" name="mod">
+                                                       <#list mods as mod>
+                                                        <option type="text" value="${mod.name}">${mod.name}</option>
+                                                        </#list>
+                                                      </select>
+                                                    </div>
+
             <div class="form-group">
                             <input type="text" class="form-control" name="price" placeholder="Введите новую цену машины">
                         </div>

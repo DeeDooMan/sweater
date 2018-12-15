@@ -18,14 +18,17 @@
             <li class="nav-item">
              <a class="nav-link" href="/user-messages/${currentUserId}">Мои предложения</a>
             </li>
-            <li class="nav-item">
-                         <a class="nav-link" href="/user-orders/${currentUserId}">Мои заказы</a>
-                        </li>
             </#if>
             <#if isAdmin>
             <li class="nav-item">
                 <a class="nav-link" href="/user">Список пользователей</a>
             </li>
+            <li class="nav-item">
+                            <a class="nav-link" href="/mainCar">Список машин</a>
+                        </li>
+                        <li class="nav-item">
+                                                    <a class="nav-link" href="/mainMod">Список моделей</a>
+                                                </li>
             </#if>
 
         </ul>
